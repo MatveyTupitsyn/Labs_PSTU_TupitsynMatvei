@@ -6,6 +6,7 @@ int main()
     //проверка с float
     float a_f = 1000.0;
     float b_f = 0.0001;
+    cout << a_f << ' ' << b_f << endl;
     
     float num1f = (a_f + b_f) * (a_f + b_f) * (a_f + b_f); // (a+b)^3
     float num2f = powf(a_f,3) + 3.0*a_f*a_f*b_f; // a^3 + 3a^2b
