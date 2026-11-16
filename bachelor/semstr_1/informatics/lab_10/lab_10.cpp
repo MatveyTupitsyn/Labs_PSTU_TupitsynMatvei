@@ -46,7 +46,7 @@ int main()
             }
             if (!dup) {
                 if (out != i)
-                    arr[out] = std::move(arr[i]);
+                    arr[out] = move(arr[i]);
                 ++out;
             }
         }
