@@ -32,18 +32,25 @@ int main()
         cout << "Элемент массива строк сгенерирован: " << arr[i] << '\n';
     }
 
-    // Удаление соседних дубликатов сдвигом
-    int n = N;
-    for (int i = 0; i + 1 < n; ) {
-        if (arr[i] == arr[i + 1]) {
-            for (int k = i + 1; k + 1 < n; ++k)
-                arr[k] = move(arr[k + 1]);
-            --n;
-        } else {
-            ++i;
-        }
-    }
 
+    int n = N;
+    int out = 0;
+        for (int i = 0; i < n; ++i) {
+            bool dup = false;
+            for (int j = 0; j < out; ++j) {
+                if (arr[j] == arr[i]) 
+                { 
+                    dup = true; 
+                    break; 
+                }
+            }
+            if (!dup) {
+                if (out != i)
+                    arr[out] = std::move(arr[i]);
+                ++out;
+            }
+        }
+    n = out;
     cout << "Массив после удаления дубликатов:\n";
     for (int i = 0; i < n; ++i)
         cout << arr[i] << '\n';
